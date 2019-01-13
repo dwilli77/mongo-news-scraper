@@ -1,0 +1,30 @@
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo hide-on-med-and-down">Wall Street Journal Scraper</a>
+      <ul class="right hide-on-small-only">
+        <li><a id="rescrape-articles" class="waves-effect waves-light btn">Scrape New Articles <i class="material-icons right">sync</i></a></li>
+        <li><a id="clear-articles" class="waves-effect waves-light btn">Clear Articles <i class="material-icons right">block</i></a></li>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/saved"><i class="material-icons left">save</i>Saved Articles</a></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="container">
+      {{#each articles}}
+        <div class="row" id="{{_id}}">
+          <div class="col s12 m10">
+            <div class="card indigo darken-4 hoverable">
+              <div class="card-content white-text">
+                <span class="card-title">{{title}}</span>
+                <p>{{summary}}</p>
+              </div>
+              <div class="card-action">
+                <a class="btn lime accent-1 black-text waves-effect waves-red card-button" target="_blank" href="{{URL}}">Read Article</a>
+                <a data-id="{{_id}}" id="save-article" class="btn waves-effect waves-purple deep-orange lighten-2 right card-button" href="#">Save this Article</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  
