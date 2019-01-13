@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo hide-on-med-and-down">Wall Street Journal Scraper</a>
+    <a href="/" class="brand-logo hide-on-med-and-down">Wall Street Journal Scraper</a>
     <ul class="right hide-on-small-only">
       <li><a id="clear-articles" class="waves-effect waves-light btn">Clear Articles <i class="material-icons right">block</i></a></li>
       <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
@@ -9,7 +9,9 @@
   </div>
 </nav>
 <div class="container">
+
   {{#each articles}}
+
   <div class="row" id="{{_id}}">
     <div class="col s12 m10">
       <div class="card green darken-4 hoverable">
@@ -20,11 +22,34 @@
         <div class="card-action">
           <a class="btn lime accent-1 black-text waves-effect waves-red card-button" target="_blank" href="{{URL}}">Read
             Article</a>
+          <a data-id="{{_id}}" id="open-notes" class="waves-effect waves-light btn modal-trigger card-button" href="#modal1">Notes</a>
           <a data-id="{{_id}}" id="remove-article" class="btn waves-effect waves-purple deep-orange lighten-2 right card-button"
             href="#">Remove from Saved</a>
         </div>
       </div>
     </div>
   </div>
+
   {{/each}}
+
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="modal-content">
+       <h3>Notes</h3>
+       <h4 id="note-title"></h4>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Add Notes Here</label>
+                </div>
+              </div>
+            </form>
+          </div>
+       </div>
+       <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-orange btn-flat notes-save">Save</a>
+        <a href="#!" class="modal-close waves-effect waves-orange btn-flat notes-cancel">Cancel</a>
+      </div>
+    </div>
 </div>

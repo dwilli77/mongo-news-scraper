@@ -4,3 +4,17 @@ body {
 .card-button:hover {
     text-decoration: underline;
 }
+.notes-cancel {
+    border: #e57373 solid 1px;
+    border-radius: 5px;
+}
+.notes-save {
+    border: #66bb6a solid 1px;
+    border-radius: 5px;
+}
+.notes-cancel:hover {
+    text-decoration: underline;
+}
+.notes-save:hover {
+    text-decoration:underline;
+}

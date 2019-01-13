@@ -17,12 +17,33 @@ module.exports = function(app){
         result.URL = $(element).find("a").attr("href");
 
         db.Article.create(result).then(function(data){
-          console.log('saved to mongo')
+          console.log('saved')
         }).catch(function(err){
           console.log(err);
         });
       });
       res.send("complete");
+    });
+  });
+
+  app.get("/articles/:id", function(req, res) {
+    db.Article.findOne({_id: req.params.id}).populate("note").then(function(data){
+      console.log(data);
+      res.json(data);
+    }).catch(function(err){
+      console.log(err);
+    })
+  });
+
+  app.post("/articles/:id", function(req, res) {
+    db.Note.create(req.body).then(function(data) {
+      console.log(req.params.id);
+      return db.Article.findOneAndUpdate({_id: req.params.id}, {$set: {note: data._id}}, { new: true });
+    }).then(function(data) {
+      res.json(data);
+    }).catch(function(err) {
+      // console.log(err)
+      res.status(500).end();
     });
   });
 
