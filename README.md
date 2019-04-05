@@ -17,3 +17,5 @@ This project uses the following technologies:
   * Axios
   * Cheerio
   * Materialize
+
+![screenshot](./screenshot.PNG "WSJ Scraper")
